@@ -13,7 +13,7 @@ class NavBar extends Component {
     }
 
     async searchResults() {
-        const url = "https://www.googleapi.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key=AIzaSyBcxZjl86K-z9ozkwX9yKseNe8-7Z-MiUM";
+        const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key=AIzaSyBcxZjl86K-z9ozkwX9yKseNe8-7Z-MiUM";
         const res = await fetch(url);
         const data = await res.json();
         if(data.pageInfo.totalResults === 0) {
@@ -41,7 +41,7 @@ class NavBar extends Component {
 
         return (
             <div className="navBar">
-                <input type="text" placeholder="Search" className="searchBar" onChange={this.setSearch} defaultValue={this.state.val}/>&nbsp;
+                <input type="text" placeholder="Search" className="searchBar" onChange={this.setSearch} defaultValue={this.state.val} required/>&nbsp;
                 <button type="submit" className="searchBtn" onClick={this.searchResults}>Search</button>
             </div>
         );

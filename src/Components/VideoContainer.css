@@ -1,6 +1,6 @@
 .videoContainer {
     display: flex;
-    width: 75%;
+    width: 70%;
     padding: 40px;
     flex-direction: column;
 }

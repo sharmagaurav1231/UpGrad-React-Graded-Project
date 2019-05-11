@@ -9,25 +9,25 @@ class MainComponent extends Component {
         super(props);
         this.state = {
             search: null,
-            flag: true
+            changeFlag: true
         };
     }
 
-    searchQuery = (data,checkVar) => {
-        this.setState({search:data,flag:checkVar});
-        //console.log(this.state['search']);
+    setChangeFlag = () => {
+        this.setState({changeFlag:false});
     }
 
-    // playVideo = (key) => {
-    //     this.setState({})
-    // }
+    searchQuery = (data,checkVar) => {
+        this.setState({search:data,flag:checkVar,changeFlag:true});
+    }
 
     render() {
+        //console.log(this.state.changeFlag);
         return (
             <div className="mainDisplay">
                 <NavBar getSearch={this.searchQuery}/>
                 { this.state.flag?
-                    <Container query={this.state['search']} flag={this.state['flag']}/>
+                    <Container query={this.state['search']} changeFlags={this.state.changeFlag} setChangeFlag={this.setChangeFlag}/>
                     :
                     <NoVideosContainer/>
                 }
