@@ -1,0 +1,43 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 10px 0px 0px;
+    width: 25%;
+}
+
+.image {
+    width: 140px;
+    height: 80px;
+}
+
+.videoList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px 0px 20px;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+}
+
+.vTitle {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0px 0px 0px 5px;
+}
+
+.cTitle {
+    text-align: left;
+    font-size: 12px;
+    margin: 0px 0px 0px 5px;
+}
+
+ol {
+    list-style-type: none;
+    padding: 0px;
+}

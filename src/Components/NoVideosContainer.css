@@ -1,0 +1,12 @@
+.mainDiv {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.text {
+    font-size: 30px;
+    color: #515156;
+    font-weight: 700;
+}

@@ -1,0 +1,19 @@
+.navBar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 5px 5px #CCCCCC;
+}
+
+.searchBar {
+    padding: 5px;
+    width: 30%;
+    color: #232323;
+    border: 1px solid lightgray;
+}
+
+.searchBtn {
+    background-color: white;
+    border: 1px solid lightgray;
+    color: #232323;
+}
