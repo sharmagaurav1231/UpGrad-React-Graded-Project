@@ -29,6 +29,7 @@
 .commentSection {
     display: flex;
     width: 100%;
+    flex-direction: column;
 }
 
 .comLabel {
@@ -82,4 +83,16 @@
     font-weight: 600;
 }
 
+.required {
+    border: 1px solid red;
+    border-style: none none solid none;
+}
 
+.fa.fa-heart {
+   color: red; 
+}
+
+.listComments {
+    display: flex;
+    flex-direction: column;
+}

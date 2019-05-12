@@ -7,13 +7,14 @@ class NavBar extends Component {
         super(props);
         this.state = {
             val: "upgrad",
-            flag: true
+            flag: true,
+            api_key:"AIzaSyBl-pWcEn-pfB89ll5WGw8a364jbmUiIVw"
         };
         this.searchResults = this.searchResults.bind(this);
     }
 
     async searchResults() {
-        const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key=AIzaSyBcxZjl86K-z9ozkwX9yKseNe8-7Z-MiUM";
+        const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key="+this.state.api_key;
         const res = await fetch(url);
         const data = await res.json();
         if(data.pageInfo.totalResults === 0) {
@@ -30,7 +31,7 @@ class NavBar extends Component {
     }
 
     async componentDidMount() {
-        const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key=AIzaSyBcxZjl86K-z9ozkwX9yKseNe8-7Z-MiUM";
+        const url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q="+this.state['val']+"&type=video&videoDefinition=high&key="+this.state.api_key;
         const res = await fetch(url);
         const data = await res.json();
         this.setState({val:"upgrad",flag:true});
