@@ -8,24 +8,9 @@ class CommentContainer extends Component {
             flag: true
         }
         this.commentBox = [];
-        this.nameBox = [];
     }
     render() {
-        console.log(this.props.changeFlag,this.props.changeFlags);
-       
-        // {
-        //     this.props.changeFlag && this.props.changeFlags?
-        //     this.nameBox = this.nameBox
-        //     :
-        //     this.nameBox = this.props.nbox
-
-        //     this.props.changeFlag && this.props.changeFlags?
-        //     this.commentBox = this.commentBox
-        //     :
-        //     this.commentBox = this.props.cbox
-            
-        // }
-        console.log(this.commentBox,this.nameBox); 
+        if(!this.props.changeFlags){this.commentBox=this.props.cbox;}
         return(
             <div className="commentSection">
                 <div className="commentSection">
@@ -41,26 +26,19 @@ class CommentContainer extends Component {
                         </div>
                     </form>
                 </div>
+                <div className="iconTitle">
+                    <i className="fa fa-user"></i>
+                    {this.props.videoObject ?
+                        <span className="channelTitled">{this.props.videoObject.snippet.channelTitle}</span>
+                        :
+                        <span className="channelTitled">{this.props.query.items[0].snippet.channelTitle}</span>
+                    }
+                </div>
                 <div ref="listCommentss" className="listComments">
-                    {this.props.changeFlag && this.props.changeFlags?
-                        this.nameBox = this.props.nbox
-                        :
-                        null
-                    }
-                    {this.props.changeFlag || this.props.changeFlags?
-                        null
-                        :
-                        this.nameBox
-                    }
-                    {this.props.changeFlag && this.props.changeFlags?
-                        this.commentBox = this.props.cbox
-                        :
-                        null
-                    }
-                    {this.props.changeFlag || this.props.changeFlags?
-                        null
-                        :
+                    {this.props.changeFlags?
                         this.commentBox
+                        :
+                        null
                     }
                 </div>
             </div>
@@ -74,10 +52,10 @@ class CommentContainer extends Component {
         } else {
             this.refs.comName.removeAttribute('class');
             this.refs.comment.removeAttribute('class');
-            this.commentBox.push(<span>{this.refs.comment.value}</span>);
-            this.nameBox.push(<span>{this.refs.comName.value}</span>);
-            //console.log(this.nameBox);
-            this.forceUpdate();
+            this.commentBox.push(<div className="singleComment" key={this.refs.comName.value}><p className="nameComment">{this.refs.comName.value}</p><p className="headComment">{this.refs.comment.value}</p></div>);
+            this.refs.comName.value = '';
+            this.refs.comment.value = '';
+            this.props.setCommentFlag();
         }
         
     }

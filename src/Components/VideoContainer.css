@@ -69,6 +69,7 @@
     border: 1px solid lightgray;
     padding: 5px 20px 5px 20px;
     margin: 20px 0px 0px 0px;
+    cursor: pointer;
 }
 
 .videoTitle {
@@ -89,10 +90,56 @@
 }
 
 .fa.fa-heart {
-   color: red; 
+   color: red;
+   margin: 20px 0px 0px 0px; 
 }
 
 .listComments {
     display: flex;
     flex-direction: column;
+    text-align: left;
+    background-color: lightgrey;
+    margin: 40px 0px 0px 0px;
 }
+
+.singleComment {
+    background-color: white;
+    margin: 10px 20px 10px 20px;
+}
+
+.nameComment {
+    font-weight: 700;
+    margin: 0px 0px 2px 10px;
+}
+
+.headComment {
+    margin: 0px 0px 2px 10px;
+}
+
+.iconTitle {
+    display: flex;
+    margin: 20px 0px 0px 0px;
+}
+
+.fa.fa-user {
+    font-size: 25px;
+    color: #515151;
+}
+
+.channelTitled {
+    color: #515151;
+    margin: 0px 0px 0px 10px;
+    font-weight: 600;
+}
+
+.mainTitleSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fa-heart-o {
+    margin: 20px 0px 0px 0px;
+}
+
+

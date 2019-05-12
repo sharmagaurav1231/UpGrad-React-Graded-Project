@@ -13,21 +13,21 @@ class MainComponent extends Component {
             changeFlag: true,
             commentFlags: true
         };
-        this.nbox = [];
         this.cbox = [];
     }
 
-    changeCommentStates = () => {
-        this.setState({commentFlags:false});
+    setCommentFlag = () => {
+        this.setState({commentFlags:true});
+        this.cbox = [];
     }
 
     setChangeFlag = () => {
         this.setState({changeFlag:false,commentFlags:false});
+        this.cbox = [];
     }
 
-    searchQuery = (data,checkVar) => {
-        this.setState({search:data,flag:checkVar,changeFlag:true,commentFlags:true});
-        this.nbox = [];
+    searchQuery = (data,checkVar,cFlag) => {
+        this.setState({search:data,flag:checkVar,changeFlag:true,commentFlags:cFlag});
         this.cbox = [];
     }
 
@@ -37,7 +37,7 @@ class MainComponent extends Component {
             <div className="mainDisplay">
                 <NavBar getSearch={this.searchQuery}/>
                 { this.state.flag?
-                    <Container query={this.state['search']} changeFlags={this.state.changeFlag} setChangeFlag={this.setChangeFlag} changeCommentStates={this.changeCommentStates} commentFlags={this.state.commentFlags} nbox={this.nbox} cbox={this.cbox}/>
+                    <Container query={this.state['search']} changeFlags={this.state.changeFlag} setChangeFlag={this.setChangeFlag} commentFlags={this.state.commentFlags} cbox={this.cbox} setCommentFlag={this.setCommentFlag}/>
                     :
                     <NoVideosContainer/>
                 }

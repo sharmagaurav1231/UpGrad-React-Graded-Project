@@ -6,13 +6,14 @@ class VideoContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            videoFlag: true
+            videoFlag: true,
         }
-        this.commentBox = [];
     }
     render() {
         
         let{videoObject} = this.props;
+
+        if(!this.props.changeFlags){this.changeHeart(this.props.changeFlags);}
 
         return (
             <div className="videoContainer">
@@ -24,23 +25,34 @@ class VideoContainer extends Component {
                         <iframe id="player" allowFullScreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" src={"https://www.youtube.com/embed/"+this.props.query.items[0].id.videoId+"?enablejsapi=1&amp;widgetid=1"} frameBorder="0"></iframe>
                     }
                 </div>
-                <div className="title">
-                    {videoObject ?
-                        <p className="videoTitle">{this.props.videoObject.snippet.title}</p>
-                        :
-                        <p className="videoTitle">{this.props.query.items[0].snippet.title}</p>
-                    }    
-                    {videoObject ?
-                        <p className="channelTitle">{this.props.videoObject.snippet.channelTitle}</p>
-                        :
-                        <p className="channelTitle">{this.props.query.items[0].snippet.channelTitle}</p>
-                    } 
-                    <i className="fa fa-heart-o"></i>   
-                    <i className="fa fa-user"></i>  
-                </div>
-                <CommentContainer changeCommentState={this.props.changeCommentState} changeFlag={this.props.changeFlag} changeCommentStates={this.props.changeCommentStates} changeFlags={this.props.changeFlags} nbox={this.props.nbox} cbox={this.props.cbox}/>
+                <div className="mainTitleSection">
+                    <div className="title">
+                        {videoObject ?
+                            <p className="videoTitle">{this.props.videoObject.snippet.title}</p>
+                            :
+                            <p className="videoTitle">{this.props.query.items[0].snippet.title}</p>
+                        }    
+                        {videoObject ?
+                            <p className="channelTitle">{this.props.videoObject.snippet.channelTitle}</p>
+                            :
+                            <p className="channelTitle">{this.props.query.items[0].snippet.channelTitle}</p>
+                        } 
+                    </div>
+                    <i className="fa fa-heart-o fa-lg" onClick={this.changeHeart} ref="heartIcon"></i>
+                </div>  
+                <CommentContainer query={this.props.query} videoObject={this.props.videoObject} changeFlags={this.props.changeFlags} cbox={this.props.cbox} setCommentFlag={this.props.setCommentFlag}/>
             </div>
         );
+    }
+
+    changeHeart = (flag) => {
+
+        if(flag && this.refs.heartIcon.className === "fa fa-heart-o fa-lg") {
+            this.refs.heartIcon.setAttribute('class','fa fa-heart fa-lg');
+        }
+        else {
+            this.refs.heartIcon.setAttribute('class','fa fa-heart-o fa-lg');
+        }
     }
     
 }

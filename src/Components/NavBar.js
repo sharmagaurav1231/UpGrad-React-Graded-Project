@@ -23,7 +23,7 @@ class NavBar extends Component {
         else {
             this.setState({flag:true});
         }
-        this.props.getSearch(data,this.state['flag']);
+        this.props.getSearch(data,this.state['flag'],false);
     }
 
     setSearch = (event) => {
@@ -35,7 +35,7 @@ class NavBar extends Component {
         const res = await fetch(url);
         const data = await res.json();
         this.setState({val:"upgrad",flag:true});
-        this.props.getSearch(data,this.state['flag']);
+        this.props.getSearch(data,this.state['flag'],true);
     }
 
     render() {
