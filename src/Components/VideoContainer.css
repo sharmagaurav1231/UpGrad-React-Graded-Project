@@ -92,6 +92,7 @@
 .fa.fa-heart {
    color: red;
    margin: 20px 0px 0px 0px; 
+   cursor: pointer;
 }
 
 .listComments {
@@ -140,6 +141,7 @@
 
 .fa-heart-o {
     margin: 20px 0px 0px 0px;
+    cursor: pointer;
 }
 
 

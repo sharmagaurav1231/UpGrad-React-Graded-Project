@@ -47,11 +47,14 @@ class VideoContainer extends Component {
 
     changeHeart = (flag) => {
 
-        if(flag && this.refs.heartIcon.className === "fa fa-heart-o fa-lg") {
-            this.refs.heartIcon.setAttribute('class','fa fa-heart fa-lg');
-        }
-        else {
-            this.refs.heartIcon.setAttribute('class','fa fa-heart-o fa-lg');
+        if(this.refs.heartIcon) {
+
+            if(flag && this.refs.heartIcon.className === "fa fa-heart-o fa-lg") {
+                this.refs.heartIcon.setAttribute('class','fa fa-heart fa-lg');
+            }
+            else {
+                this.refs.heartIcon.setAttribute('class','fa fa-heart-o fa-lg');
+            }
         }
     }
     
